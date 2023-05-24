@@ -6,7 +6,6 @@ import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -23,7 +22,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Override
     public List<Employee> findAll() {
-
         //create a query
         TypedQuery<Employee> theQuery = entityManager.createQuery("FROM Employee", Employee.class);
 
@@ -32,5 +30,35 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
         //return the result
         return employees;
+    }
+
+    @Override
+    public Employee findById(int Id) {
+        //get employee
+        Employee theEmployee = entityManager.find(Employee.class, Id);
+
+        //return the result
+        return theEmployee;
+    }
+
+    @Override
+    public Employee save(Employee employee) {
+        //save or update employee
+        Employee dbEmployee = entityManager.merge(employee);
+
+        //return the db employee
+        return dbEmployee;
+    }
+
+    @Override
+    public Employee deleteById(int Id) {
+        //find employee by id
+        Employee employeeToDelete = entityManager.find(Employee.class, Id);
+
+        //remove employee
+        entityManager.remove(employeeToDelete);
+
+        //return deleted employee
+        return employeeToDelete;
     }
 }

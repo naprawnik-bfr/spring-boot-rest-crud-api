@@ -1,10 +1,11 @@
-package com.naprawnikbfr.demo.dao;
+package com.naprawnikbfr.demo.service;
 
+import com.naprawnikbfr.demo.dao.EmployeeDAO;
 import com.naprawnikbfr.demo.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
     List<Employee> findAll();
     Employee findById(int Id);
