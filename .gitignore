@@ -102,3 +102,8 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+##############################
+## Folder
+##############################
+spring-boot-employee-sql-script/sql-scripts
