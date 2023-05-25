@@ -1,6 +1,6 @@
-package com.naprawnikbfr.demo.jpadatabaseconnection.dao;
+package com.naprawnikbfr.demo.dao;
 
-import com.naprawnikbfr.demo.jpadatabaseconnection.entity.Employee;
+import com.naprawnikbfr.demo.entity.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,14 +51,11 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     }
 
     @Override
-    public Employee deleteById(int Id) {
+    public void deleteById(int Id) {
         //find employee by id
         Employee employeeToDelete = entityManager.find(Employee.class, Id);
 
         //remove employee
         entityManager.remove(employeeToDelete);
-
-        //return deleted employee
-        return employeeToDelete;
     }
 }

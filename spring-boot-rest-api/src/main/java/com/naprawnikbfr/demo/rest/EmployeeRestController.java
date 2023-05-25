@@ -1,7 +1,7 @@
-package com.naprawnikbfr.demo.jpadatabaseconnection.rest;
+package com.naprawnikbfr.demo.rest;
 
-import com.naprawnikbfr.demo.jpadatabaseconnection.entity.Employee;
-import com.naprawnikbfr.demo.jpadatabaseconnection.service.EmployeeService;
+import com.naprawnikbfr.demo.entity.Employee;
+import com.naprawnikbfr.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,7 +61,7 @@ public class EmployeeRestController {
 
     //add mapping for DELETE "/employees/{employeeId}" - delete employee
     @DeleteMapping("/employees/{employeeId}")
-    public Employee deleteEmployee(@PathVariable int employeeId){
+    public String deleteEmployee(@PathVariable int employeeId){
 
         Employee tempEmployee =  employeeService.findById(employeeId);
 
@@ -72,8 +72,6 @@ public class EmployeeRestController {
 
         employeeService.deleteById(employeeId);
 
-        System.out.println("Deleted Employee: ");
-        return tempEmployee;
+        return "Deleted Employee Id : " + employeeId;
     }
-
 }

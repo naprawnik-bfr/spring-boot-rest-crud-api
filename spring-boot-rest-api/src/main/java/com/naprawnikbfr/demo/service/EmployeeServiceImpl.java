@@ -1,7 +1,7 @@
-package com.naprawnikbfr.demo.jpadatabaseconnection.service;
+package com.naprawnikbfr.demo.service;
 
-import com.naprawnikbfr.demo.jpadatabaseconnection.dao.EmployeeDAO;
-import com.naprawnikbfr.demo.jpadatabaseconnection.entity.Employee;
+import com.naprawnikbfr.demo.dao.EmployeeDAO;
+import com.naprawnikbfr.demo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Transactional
     @Override
-    public Employee deleteById(int Id) {
-        return employeeDAO.deleteById(Id);
+    public void deleteById(int Id) {
+        employeeDAO.deleteById(Id);
     }
 }
