@@ -16,9 +16,19 @@ public class EmployeeSecurityConfig {
 
     //add support for JDBC...no more hard-coded users.
     @Bean
-    public UserDetailsManager userDetailsManager(DataSource dataSource){    // injecting data source autoconfigured by Spring Boot
+    public UserDetailsManager userDetailsManager(DataSource dataSource){        // injecting data source autoconfigured by Spring Boot
 
-        return new JdbcUserDetailsManager(dataSource);                      // tell Spring Sec to use JDBC authentication with our data source
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+        //define a query to retrieve a user by username --> How to find users?
+        jdbcUserDetailsManager.setUsersByUsernameQuery(
+                "SELECT user_id, pw, active FROM members WHERE user_id=?");
+
+        //define a query to retrieve the authorities/roles by username --> How to find roles?
+        jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
+                "SELECT user_id, role FROM roles WHERE user_id=?");
+
+        return jdbcUserDetailsManager;      // tell Spring Sec to use JDBC authentication with our data source
     }
 
     @Bean
