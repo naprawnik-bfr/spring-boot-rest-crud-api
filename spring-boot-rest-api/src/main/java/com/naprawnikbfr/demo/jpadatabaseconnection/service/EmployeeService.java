@@ -1,7 +1,6 @@
-package com.naprawnikbfr.demo.service;
+package com.naprawnikbfr.demo.jpadatabaseconnection.service;
 
-import com.naprawnikbfr.demo.dao.EmployeeDAO;
-import com.naprawnikbfr.demo.entity.Employee;
+import com.naprawnikbfr.demo.jpadatabaseconnection.entity.Employee;
 
 import java.util.List;
 

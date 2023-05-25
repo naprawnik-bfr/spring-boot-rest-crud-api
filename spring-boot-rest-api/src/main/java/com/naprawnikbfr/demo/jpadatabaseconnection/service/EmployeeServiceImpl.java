@@ -1,7 +1,7 @@
-package com.naprawnikbfr.demo.service;
+package com.naprawnikbfr.demo.jpadatabaseconnection.service;
 
-import com.naprawnikbfr.demo.dao.EmployeeDAO;
-import com.naprawnikbfr.demo.entity.Employee;
+import com.naprawnikbfr.demo.jpadatabaseconnection.dao.EmployeeDAO;
+import com.naprawnikbfr.demo.jpadatabaseconnection.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

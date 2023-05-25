@@ -1,4 +1,4 @@
-package com.naprawnikbfr.demo.entity;
+package com.naprawnikbfr.demo.jpadatabaseconnection.entity;
 
 import jakarta.persistence.*;
 

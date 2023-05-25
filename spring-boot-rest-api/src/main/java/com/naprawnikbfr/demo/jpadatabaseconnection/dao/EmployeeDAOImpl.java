@@ -1,6 +1,6 @@
-package com.naprawnikbfr.demo.dao;
+package com.naprawnikbfr.demo.jpadatabaseconnection.dao;
 
-import com.naprawnikbfr.demo.entity.Employee;
+import com.naprawnikbfr.demo.jpadatabaseconnection.entity.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
